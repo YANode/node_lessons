@@ -56,7 +56,7 @@ const server = http.createServer((req, res) => {
     }
 })
 
-
+// comment fore server
 server.listen(3000, () => {
     console.log('server is running')
 })
