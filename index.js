@@ -8,7 +8,7 @@ const server = http.createServer((req, res) => {
         res.writeHead(200, {
             'Content-type': 'text/html; charset=utf - 8'
         })
-        //какую именно страницу нам необходимо отдать
+
         if (req.url === '/') {
             fs.readFile(
                 path.join(__dirname, 'views', 'index.html'),
@@ -31,6 +31,17 @@ const server = http.createServer((req, res) => {
                     res.end(content)
                 }
             )
+        } else if (req.url === '/api/users') {
+            res.writeHead(200, {
+                'Content-Type': 'text/json'
+                });
+
+            const users = [
+                {name:'Vladilen', age: 25},
+                {name:'Lena', age: 26}
+            ];
+
+            res.end(JSON.stringify(users));
         }
 
     } else if (req.method === 'POST') {
