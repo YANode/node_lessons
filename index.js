@@ -34,14 +34,14 @@ const server = http.createServer((req, res) => {
         } else if (req.url === '/api/users') {
             res.writeHead(200, {
                 'Content-Type': 'text/json'
-                })
+                });
+
             const users = [
                 {name:'Vladilen', age: 25},
                 {name:'Lena', age: 26}
+            ];
 
-            ]
-
-            res.end(JSON.stringify(users))
+            res.end(JSON.stringify(users));
         }
 
     } else if (req.method === 'POST') {
